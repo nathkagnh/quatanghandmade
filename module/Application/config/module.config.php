@@ -1,10 +1,4 @@
 <?php
-/**
- * @link      http://github.com/zendframework/ZendSkeletonApplication for the canonical source repository
- * @copyright Copyright (c) 2005-2016 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   http://framework.zend.com/license/new-bsd New BSD License
- */
-
 namespace Application;
 
 use Zend\Router\Http\Literal;
@@ -24,13 +18,31 @@ return [
                     ],
                 ],
             ],
-            'application' => [
+            'categories' => [
                 'type'    => Segment::class,
                 'options' => [
-                    'route'    => '/application[/:action]',
+                    'route'    => '/the-loai/:theloai',
+                    'constraints' => [
+                        'theloai' => '[0-9a-zA-Z_-]*'
+                    ],
                     'defaults' => [
-                        'controller' => Controller\IndexController::class,
+                        'controller' => Controller\CategoryController::class,
                         'action'     => 'index',
+                    ],
+                ],
+            ],
+            'details' => [
+                'type' => Segment::class,
+                'options' => [
+                    'route' => '/:theloai/:codename/:id',
+                    'constraints' => [
+                        'theloai' => '[0-9a-zA-Z_-]*',
+                        'codename' => '[0-9a-zA-Z_-]*',
+                        'id' => '[0-9]*',
+                    ],
+                    'defaults' => [
+                        'controller' => Controller\DetailController::class,
+                        'action' => 'index',
                     ],
                 ],
             ],
@@ -39,6 +51,8 @@ return [
     'controllers' => [
         'factories' => [
             Controller\IndexController::class => InvokableFactory::class,
+            Controller\CategoryController::class => InvokableFactory::class,
+            Controller\DetailController::class => InvokableFactory::class,
         ],
     ],
     'view_manager' => [
