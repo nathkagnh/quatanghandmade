@@ -46,6 +46,19 @@ return [
                     ],
                 ],
             ],
+            'shopping' => [
+                'type' => Segment::class,
+                'options' => [
+                    'route' => '/shopping/:action',
+                    'constraints' => [
+                        'action' => '[0-9a-zA-Z_-]*',
+                    ],
+                    'defaults' => [
+                        'controller' => Controller\ShoppingController::class,
+                        'action' => 'index',
+                    ],
+                ],
+            ],
         ],
     ],
     'controllers' => [
@@ -53,6 +66,7 @@ return [
             Controller\IndexController::class => InvokableFactory::class,
             Controller\CategoryController::class => InvokableFactory::class,
             Controller\DetailController::class => InvokableFactory::class,
+            Controller\ShoppingController::class => InvokableFactory::class,
         ],
     ],
     'view_manager' => [
