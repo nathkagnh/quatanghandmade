@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50719
 File Encoding         : 65001
 
-Date: 2018-02-06 16:57:09
+Date: 2018-02-07 14:10:11
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -36,6 +36,23 @@ CREATE TABLE `category` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
+-- Table structure for customer
+-- ----------------------------
+DROP TABLE IF EXISTS `customer`;
+CREATE TABLE `customer` (
+  `customer_id` int(11) NOT NULL AUTO_INCREMENT,
+  `email` varchar(100) DEFAULT NULL,
+  `fullname` varchar(255) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `tel` varchar(50) DEFAULT NULL,
+  `more_info` text,
+  `status` tinyint(4) DEFAULT '1',
+  `creation_time` int(11) DEFAULT NULL,
+  `update_time` int(11) DEFAULT NULL,
+  PRIMARY KEY (`customer_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
 -- Table structure for hot_object
 -- ----------------------------
 DROP TABLE IF EXISTS `hot_object`;
@@ -53,6 +70,22 @@ CREATE TABLE `hot_object` (
   PRIMARY KEY (`hot_id`),
   KEY `idx_object` (`object_id`,`object_type`,`showed_area`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=263 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Table structure for order
+-- ----------------------------
+DROP TABLE IF EXISTS `order`;
+CREATE TABLE `order` (
+  `order_id` int(11) NOT NULL AUTO_INCREMENT,
+  `customer_id` int(11) DEFAULT NULL,
+  `product_id` int(11) DEFAULT NULL,
+  `quantity` int(11) DEFAULT '0',
+  `params` text,
+  `status` tinyint(4) DEFAULT '1',
+  `creation_time` int(11) DEFAULT NULL,
+  `update_time` int(11) DEFAULT NULL,
+  PRIMARY KEY (`order_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for products
@@ -117,20 +150,6 @@ END
 DELIMITER ;
 
 -- ----------------------------
--- Procedure structure for sp_be_getDetailCategory
--- ----------------------------
-DROP PROCEDURE IF EXISTS `sp_be_getDetailCategory`;
-DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_be_getDetailCategory`(p_category_id INT)
-BEGIN 
-  SELECT * 
-  FROM category 
-  WHERE category_id = p_category_id;
-END
-;;
-DELIMITER ;
-
--- ----------------------------
 -- Procedure structure for sp_countProducts
 -- ----------------------------
 DROP PROCEDURE IF EXISTS `sp_countProducts`;
@@ -141,6 +160,34 @@ BEGIN
   FROM products
   WHERE `status` = IFNULL(p_status,`status`)
   AND `status` <> 0;
+END
+;;
+DELIMITER ;
+
+-- ----------------------------
+-- Procedure structure for sp_getDetailCategory
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `sp_getDetailCategory`;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_getDetailCategory`(p_category_id INT)
+BEGIN 
+  SELECT * 
+  FROM category 
+  WHERE category_id = p_category_id;
+END
+;;
+DELIMITER ;
+
+-- ----------------------------
+-- Procedure structure for sp_getDetailCustomer
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `sp_getDetailCustomer`;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_getDetailCustomer`(p_customer_id INT)
+BEGIN 
+  SELECT * 
+  FROM customer 
+  WHERE customer_id = p_customer_id;
 END
 ;;
 DELIMITER ;
@@ -181,6 +228,31 @@ BEGIN
   AND user_id IN (',p_user_id,')');
 
   PREPARE v_stmt FROM @stmt;
+  EXECUTE v_stmt;
+  DEALLOCATE PREPARE v_stmt;
+END
+;;
+DELIMITER ;
+
+-- ----------------------------
+-- Procedure structure for sp_getListAllOrderGroupByCustomer
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `sp_getListAllOrderGroupByCustomer`;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_getListAllOrderGroupByCustomer`(p_status INT)
+BEGIN
+  SET @stmt = CONCAT('
+  SELECT customer_id, GROUP_CONCAT(order_id) orders
+  FROM `order`
+  WHERE status <> 0');
+
+  IF p_status IS NOT NULL THEN
+    SET @stmt = CONCAT(@stmt, ' AND status = ', p_status);
+  END IF;
+
+  SET @stmt = CONCAT(@stmt, " GROUP BY customer_id");
+
+  PREPARE v_stmt from @stmt;
   EXECUTE v_stmt;
   DEALLOCATE PREPARE v_stmt;
 END
@@ -242,6 +314,66 @@ BEGIN
 
   SET p_total = FOUND_ROWS();
 
+END
+;;
+DELIMITER ;
+
+-- ----------------------------
+-- Procedure structure for sp_getListOrderByCustomer
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `sp_getListOrderByCustomer`;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_getListOrderByCustomer`(p_customer_id INT, p_status INT)
+BEGIN 
+
+    SET @stmt = "
+              SELECT SQL_CALC_FOUND_ROWS order_id, update_time
+              FROM `order`
+              WHERE status <> 0";
+
+    IF p_status IS NOT NULL THEN
+      SET @stmt = CONCAT(@stmt, ' AND status = ', p_status);
+    END IF;
+
+    IF p_customer_id IS NOT NULL THEN
+      SET @stmt = CONCAT(@stmt, ' AND customer_id = ', p_customer_id);
+    END IF;
+
+    SET @stmt = CONCAT(@stmt, " ORDER BY update_time DESC");
+
+    PREPARE v_stmt FROM @stmt;
+    EXECUTE v_stmt;
+    DEALLOCATE PREPARE v_stmt;
+END
+;;
+DELIMITER ;
+
+-- ----------------------------
+-- Procedure structure for sp_getListOrderByProduct
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `sp_getListOrderByProduct`;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_getListOrderByProduct`(p_product_id INT, p_status INT)
+BEGIN 
+
+    SET @stmt = "
+              SELECT SQL_CALC_FOUND_ROWS order_id, update_time
+              FROM `order`
+              WHERE status <> 0";
+
+    IF p_status IS NOT NULL THEN
+      SET @stmt = CONCAT(@stmt, ' AND status = ', p_status);
+    END IF;
+
+    IF p_product_id IS NOT NULL THEN
+      SET @stmt = CONCAT(@stmt, ' AND product_id = ', p_product_id);
+    END IF;
+
+    SET @stmt = CONCAT(@stmt, " ORDER BY update_time DESC");
+
+    PREPARE v_stmt FROM @stmt;
+    EXECUTE v_stmt;
+    DEALLOCATE PREPARE v_stmt;
 END
 ;;
 DELIMITER ;
@@ -392,6 +524,21 @@ END
 DELIMITER ;
 
 -- ----------------------------
+-- Procedure structure for sp_insertCustomer
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `sp_insertCustomer`;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_insertCustomer`(p_email VARCHAR(100), p_fullname VARCHAR(255), p_address VARCHAR(255), p_tel VARCHAR(50), p_more_info TEXT, p_status INT, OUT p_customer_id INT)
+BEGIN 
+    INSERT INTO customer(email, fullname, address, tel, more_info, status, creation_time, update_time)
+    VALUES(p_email, p_fullname, p_address, p_tel, p_more_info, p_status, UNIX_TIMESTAMP(), UNIX_TIMESTAMP());
+
+    SET p_customer_id = LAST_INSERT_ID();
+END
+;;
+DELIMITER ;
+
+-- ----------------------------
 -- Procedure structure for sp_insertHotObject
 -- ----------------------------
 DROP PROCEDURE IF EXISTS `sp_insertHotObject`;
@@ -408,6 +555,21 @@ BEGIN
   ELSE
     SELECT -1 AS result;
   END IF;
+END
+;;
+DELIMITER ;
+
+-- ----------------------------
+-- Procedure structure for sp_insertOrder
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `sp_insertOrder`;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_insertOrder`(p_customer_id INT, p_product_id INT, p_quantity INT, p_params TEXT, p_status TINYINT)
+BEGIN 
+    INSERT INTO `order`(customer_id, product_id, quantity, params, status, creation_time, update_time)
+    VALUES(p_customer_id, p_product_id, p_quantity, p_params, p_status, UNIX_TIMESTAMP(), UNIX_TIMESTAMP());
+
+    SELECT ROW_COUNT() as result;
 END
 ;;
 DELIMITER ;
@@ -456,6 +618,28 @@ END
 DELIMITER ;
 
 -- ----------------------------
+-- Procedure structure for sp_updateCustomer
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `sp_updateCustomer`;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_updateCustomer`(p_email VARCHAR(100), p_fullname VARCHAR(255), p_address VARCHAR(255), p_tel VARCHAR(50), p_more_info TEXT, p_status INT, p_customer_id INT)
+BEGIN 
+    UPDATE customer
+    SET email =  IFNULL(p_email, email),
+      fullname = IFNULL(p_fullname, fullname) ,
+      address = IFNULL(p_address, address) ,
+      tel = IFNULL(p_tel, tel),
+      more_info = IFNULL(p_more_info, more_info),
+      status = IFNULL(p_status, status),
+      update_time = UNIX_TIMESTAMP()
+    WHERE customer_id = p_customer_id;
+       
+    SELECT ROW_COUNT() as result;
+END
+;;
+DELIMITER ;
+
+-- ----------------------------
 -- Procedure structure for sp_updateHotObject
 -- ----------------------------
 DROP PROCEDURE IF EXISTS `sp_updateHotObject`;
@@ -472,6 +656,27 @@ BEGIN
     `status` = IFNULL(p_status,`status`),
     update_time = UNIX_TIMESTAMP()
   WHERE hot_id = p_hot_id;
+END
+;;
+DELIMITER ;
+
+-- ----------------------------
+-- Procedure structure for sp_updateOrder
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `sp_updateOrder`;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_updateOrder`(p_customer_id INT, p_product_id INT, p_quantity INT, p_params TEXT, p_status INT, p_order_id INT)
+BEGIN 
+    UPDATE `order`
+    SET customer_id =  IFNULL(p_customer_id, customer_id),
+      product_id = IFNULL(p_product_id, product_id) ,
+      quantity = IFNULL(p_quantity, quantity) ,
+      params = IFNULL(p_params, params),
+      status = IFNULL(p_status, status),
+      update_time = UNIX_TIMESTAMP()
+    WHERE order_id = p_order_id;
+       
+    SELECT ROW_COUNT() as result;
 END
 ;;
 DELIMITER ;
