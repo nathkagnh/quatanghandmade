@@ -4,7 +4,7 @@
  * @Author: KhangLDN
  * @Date:   2018-02-07 14:18:31
  * @Last Modified by:   KhangLDN
- * @Last Modified time: 2018-02-07 17:12:45
+ * @Last Modified time: 2018-02-07 17:46:51
  */
 
 namespace Application\Model;
@@ -50,7 +50,7 @@ class User
 
     public function addUser($arrParams)
     {
-    	$arrReturn = array();
+    	$result = false;
     	$stmt = $this->_adapter->createStatement();
     	$stmt->prepare('CALL sp_addUsers(:p_user_name, :p_email, :p_fullname, :p_password, :p_status, @p_user_id)');
     	$stmt->getResource()->bindParam('p_user_name', $arrParams['user_name']);
@@ -59,16 +59,19 @@ class User
     	$stmt->getResource()->bindParam('p_password', $arrParams['password']);
     	$stmt->getResource()->bindParam('p_status', $arrParams['status']);
     	$stmt->execute();
-    	while($row = $stmt->getResource()->fetch(PDO::FETCH_ASSOC))
-		{
-			$arrReturn[] = $row;
-		}
 
         //close cursor
         $stmt->getResource()->closeCursor();
         unset($stmt);
 
-		return $arrReturn;
+        //get total
+        $stmtOut = $this->_adapter->createStatement();
+        $stmtOut->prepare('SELECT @p_user_id AS user_id');
+        $result = $stmtOut->execute();
+        $output = $result->current();
+        $result = $output['user_id'] > 0 ? intval($output['user_id']) : false;
+
+		return $result;
     }
 
     public function getDetailUser($user_id)
@@ -80,7 +83,7 @@ class User
     	$stmt->execute();
     	while($row = $stmt->getResource()->fetch(PDO::FETCH_ASSOC))
 		{
-			$arrReturn[] = $row;
+			$arrReturn = $row;
 		}
 
         //close cursor
