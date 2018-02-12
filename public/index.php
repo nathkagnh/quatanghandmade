@@ -1,6 +1,7 @@
 <?php
 use Zend\Mvc\Application;
 use Zend\Stdlib\ArrayUtils;
+use Zend\Loader\AutoloaderFactory;
 
 /**
  * This makes our life easier when dealing with paths. Everything is relative
@@ -37,6 +38,14 @@ if (file_exists(__DIR__ . '/../config/development.config.php')) {
 
 // Define
 include_once(__DIR__ . '/../config/defined.php');
+
+// Autoloader library
+AutoloaderFactory::factory(['Zend\Loader\StandardAutoloader' => [
+    'namespaces' => [
+        'Library' => dirname(__DIR__) . '/library',
+        'Application\Model' => dirname(__DIR__) . '/library/Model',
+    ]
+]]);
 
 // Run the application!
 Application::init($appConfig)->run();

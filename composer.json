@@ -1,5 +1,12 @@
 {
     "require": {
-        "zendframework/zendframework": "^3.0"
+        "zendframework/zendframework": "^3.0",
+        "zendframework/zend-crypt": "^3.2"
+    },
+	"autoload": {
+        "psr-4": {
+        	"Application\\": "module/Application/src/",
+            "Admin\\": "module/Admin/src/"
+        }
     }
 }

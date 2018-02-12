@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html class="no-js css-menubar" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta name="description" content="bootstrap material admin template">
+    <meta name="author" content="">
+    <?= $this->headMeta() ?>
+    <?= $this->headTitle('Dashboard | QTHM Shop')->setSeparator(' - ')->setAutoEscape(false) ?>
+    
+    <link rel="apple-touch-icon" href="<?= $this->basePath('ad-st/apple-touch-icon.png') ?>">
+    <link rel="shortcut icon" href="<?= $this->basePath('ad-st/favicon.ico') ?>">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="<?= $this->basePath('ad-st/css/bootstrap.min.css') ?>">
+    <link rel="stylesheet" href="<?= $this->basePath('ad-st/css/bootstrap-extend.min.css') ?>">
+    <link rel="stylesheet" href="<?= $this->basePath('ad-st/css/site.min.css') ?>">
+    
+    <!-- Plugins -->
+    <link rel="stylesheet" href="<?= $this->basePath('ad-st/vendor') ?>/animsition/animsition.css">
+    <link rel="stylesheet" href="<?= $this->basePath('ad-st/vendor') ?>/asscrollable/asScrollable.css">
+    <link rel="stylesheet" href="<?= $this->basePath('ad-st/vendor') ?>/switchery/switchery.css">
+    <link rel="stylesheet" href="<?= $this->basePath('ad-st/vendor') ?>/intro-js/introjs.css">
+    <link rel="stylesheet" href="<?= $this->basePath('ad-st/vendor') ?>/slidepanel/slidePanel.css">
+    <link rel="stylesheet" href="<?= $this->basePath('ad-st/vendor') ?>/jquery-mmenu/jquery-mmenu.css">
+    <link rel="stylesheet" href="<?= $this->basePath('ad-st/vendor') ?>/flag-icon-css/flag-icon.css">
+    <link rel="stylesheet" href="<?= $this->basePath('ad-st/vendor') ?>/waves/waves.css">
+    <link rel="stylesheet" href="<?= $this->basePath('ad-st/vendor') ?>/chartist/chartist.css">
+    <link rel="stylesheet" href="<?= $this->basePath('ad-st/vendor') ?>/jvectormap/jquery-jvectormap.css">
+    <link rel="stylesheet" href="<?= $this->basePath('ad-st/vendor') ?>/chartist-plugin-tooltip/chartist-plugin-tooltip.css">
+    <link rel="stylesheet" href="<?= $this->basePath('ad-st/css/dashboard/v1.css') ?>">
+    
+    
+    <!-- Fonts -->
+    <link rel="stylesheet" href="<?= $this->basePath('ad-st/fonts') ?>/material-design/material-design.min.css">
+    <link rel="stylesheet" href="<?= $this->basePath('ad-st/fonts') ?>/brand-icons/brand-icons.min.css">
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic'>
+
+    <?= $this->headLink() ?>
+    
+    <!--[if lt IE 9]>
+    <script src="<?= $this->basePath('ad-st/vendor') ?>/html5shiv/html5shiv.min.js"></script>
+    <![endif]-->
+    
+    <!--[if lt IE 10]>
+    <script src="<?= $this->basePath('ad-st/vendor') ?>/media-match/media.match.min.js"></script>
+    <script src="<?= $this->basePath('ad-st/vendor') ?>/respond/respond.min.js"></script>
+    <![endif]-->
+    
+    <!-- Scripts -->
+    <script src="<?= $this->basePath('ad-st/vendor') ?>/breakpoints/breakpoints.js"></script>
+    <script>
+      Breakpoints();
+    </script>
+    <?= $this->headScript() ?>
+  </head>
+  <body class="animsition site-navbar-small dashboard">
+    <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <nav class="site-navbar navbar navbar-default navbar-fixed-top navbar-mega" role="navigation">
+    
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggler hamburger hamburger-close navbar-toggler-left hided"
+          data-toggle="menubar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="hamburger-bar"></span>
+        </button>
+        <button type="button" class="navbar-toggler collapsed" data-target="#site-navbar-collapse"
+          data-toggle="collapse">
+          <i class="icon md-more" aria-hidden="true"></i>
+        </button>
+        <div class="navbar-brand navbar-brand-center site-gridmenu-toggle" data-toggle="gridmenu">
+          <img class="navbar-brand-logo" src="<?= $this->basePath('ad-st/img') ?>/logo.png" title="Remark">
+          <span class="navbar-brand-text hidden-xs-down"> Remark</span>
+        </div>
+        <button type="button" class="navbar-toggler collapsed" data-target="#site-navbar-search"
+          data-toggle="collapse">
+          <span class="sr-only">Toggle Search</span>
+          <i class="icon md-search" aria-hidden="true"></i>
+        </button>
+      </div>
+    
+      <div class="navbar-container container-fluid">
+        <!-- Navbar Collapse -->
+        <div class="collapse navbar-collapse navbar-collapse-toolbar" id="site-navbar-collapse">
+          <!-- Navbar Toolbar -->
+          <ul class="nav navbar-toolbar">
+            <li class="nav-item hidden-float" id="toggleMenubar">
+              <a class="nav-link" data-toggle="menubar" href="#" role="button">
+                <i class="icon hamburger hamburger-arrow-left">
+                  <span class="sr-only">Toggle menubar</span>
+                  <span class="hamburger-bar"></span>
+                </i>
+              </a>
+            </li>
+            <li class="nav-item hidden-sm-down" id="toggleFullscreen">
+              <a class="nav-link icon icon-fullscreen" data-toggle="fullscreen" href="#" role="button">
+                <span class="sr-only">Toggle fullscreen</span>
+              </a>
+            </li>
+          </ul>
+          <!-- End Navbar Toolbar -->
+        </div>
+        <!-- End Navbar Collapse -->
+    
+        <!-- Site Navbar Seach -->
+        <div class="collapse navbar-search-overlap" id="site-navbar-search">
+          <form role="search">
+            <div class="form-group">
+              <div class="input-search">
+                <i class="input-search-icon md-search" aria-hidden="true"></i>
+                <input type="text" class="form-control" name="site-search" placeholder="Search...">
+                <button type="button" class="input-search-close icon md-close" data-target="#site-navbar-search"
+                  data-toggle="collapse" aria-label="Close"></button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <!-- End Site Navbar Seach -->
+      </div>
+    </nav>
+    <div class="site-menubar">
+      <ul class="site-menu">
+        <li class="site-menu-item active">
+          <a class="animsition-link" href="<?= $this->url('admin-home'); ?>">
+            <i class="site-menu-icon md-view-dashboard" aria-hidden="true"></i>
+            <span class="site-menu-title">Dashboard</span>
+          </a>
+        </li>
+        <li class="site-menu-item has-sub">
+          <a href="<?= $this->url('admin-product'); ?>">
+            <i class="site-menu-icon md-view-compact" aria-hidden="true"></i>
+            <span class="site-menu-title">Products</span>
+            <span class="site-menu-arrow"></span>
+          </a>
+          <ul class="site-menu-sub">
+            <li class="site-menu-item">
+              <a class="animsition-link" href="<?= $this->url('admin-product', ['action' => 'add']); ?>">
+                <span class="site-menu-title">Add</span>
+              </a>
+            </li>
+            <li class="site-menu-item">
+              <a class="animsition-link" href="<?= $this->url('admin-product', ['action' => 'edit']); ?>">
+                <span class="site-menu-title">Edit</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="site-menu-item has-sub">
+          <a href="javascript:void(0)">
+                  <i class="site-menu-icon md-palette" aria-hidden="true"></i>
+                  <span class="site-menu-title">Basic UI</span>
+                          <span class="site-menu-arrow"></span>
+              </a>
+          <ul class="site-menu-sub">
+            <li class="site-menu-item has-sub">
+              <a href="javascript:void(0)">
+                <span class="site-menu-title">Panel</span>
+                <span class="site-menu-arrow"></span>
+              </a>
+              <ul class="site-menu-sub">
+                <li class="site-menu-item">
+                  <a class="animsition-link" href="uikit/panel-structure.html">
+                    <span class="site-menu-title">Panel Structure</span>
+                  </a>
+                </li>
+                <li class="site-menu-item">
+                  <a class="animsition-link" href="uikit/panel-actions.html">
+                    <span class="site-menu-title">Panel Actions</span>
+                  </a>
+                </li>
+                <li class="site-menu-item">
+                  <a class="animsition-link" href="uikit/panel-portlets.html">
+                    <span class="site-menu-title">Panel Portlets</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="site-menu-item">
+              <a class="animsition-link" href="uikit/buttons.html">
+                <span class="site-menu-title">Buttons</span>
+              </a>
+            </li>
+            <li class="site-menu-item">
+              <a class="animsition-link" href="uikit/cards.html">
+                <span class="site-menu-title">Cards</span>
+              </a>
+            </li>
+            <li class="site-menu-item">
+              <a class="animsition-link" href="uikit/dropdowns.html">
+                <span class="site-menu-title">Dropdowns</span>
+              </a>
+            </li>
+            <li class="site-menu-item">
+              <a class="animsition-link" href="uikit/icons.html">
+                <span class="site-menu-title">Icons</span>
+              </a>
+            </li>
+            <li class="site-menu-item">
+              <a class="animsition-link" href="uikit/list.html">
+                <span class="site-menu-title">List</span>
+              </a>
+            </li>
+            <li class="site-menu-item">
+              <a class="animsition-link" href="uikit/tooltip-popover.html">
+                <span class="site-menu-title">Tooltip &amp; Popover</span>
+              </a>
+            </li>
+            <li class="site-menu-item">
+              <a class="animsition-link" href="uikit/modals.html">
+                <span class="site-menu-title">Modals</span>
+              </a>
+            </li>
+            <li class="site-menu-item">
+              <a class="animsition-link" href="uikit/tabs-accordions.html">
+                <span class="site-menu-title">Tabs &amp; Accordions</span>
+              </a>
+            </li>
+            <li class="site-menu-item">
+              <a class="animsition-link" href="uikit/images.html">
+                <span class="site-menu-title">Images</span>
+              </a>
+            </li>
+            <li class="site-menu-item">
+              <a class="animsition-link" href="uikit/badges.html">
+                <span class="site-menu-title">Badges</span>
+              </a>
+            </li>
+            <li class="site-menu-item">
+              <a class="animsition-link" href="uikit/progress-bars.html">
+                <span class="site-menu-title">Progress Bars</span>
+              </a>
+            </li>
+            <li class="site-menu-item">
+              <a class="animsition-link" href="uikit/carousel.html">
+                <span class="site-menu-title">Carousel</span>
+              </a>
+            </li>
+            <li class="site-menu-item">
+              <a class="animsition-link" href="uikit/typography.html">
+                <span class="site-menu-title">Typography</span>
+              </a>
+            </li>
+            <li class="site-menu-item">
+              <a class="animsition-link" href="uikit/colors.html">
+                <span class="site-menu-title">Colors</span>
+              </a>
+            </li>
+            <li class="site-menu-item">
+              <a class="animsition-link" href="uikit/utilities.html">
+                <span class="site-menu-title">Utilties</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="page">
+        <?= $this->content ?>
+    </div>
+    <!-- END CONTENT -->
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="site-footer-legal">© 2018</div>
+      <div class="site-footer-right">
+        Crafted with <i class="red-600 icon md-favorite"></i> by <a href="https://themeforest.net/user/creation-studio">Creation NATHKAGNH</a>
+      </div>
+    </footer>
+    <!-- Core  -->
+    <script src="<?= $this->basePath('ad-st/vendor') ?>/babel-external-helpers/babel-external-helpers.js"></script>
+    <script src="<?= $this->basePath('ad-st/vendor') ?>/jquery/jquery.js"></script>
+    <script src="<?= $this->basePath('ad-st/vendor') ?>/popper-js/umd/popper.min.js"></script>
+    <script src="<?= $this->basePath('ad-st/vendor') ?>/bootstrap/bootstrap.js"></script>
+    <script src="<?= $this->basePath('ad-st/vendor') ?>/animsition/animsition.js"></script>
+    <script src="<?= $this->basePath('ad-st/vendor') ?>/mousewheel/jquery.mousewheel.js"></script>
+    <script src="<?= $this->basePath('ad-st/vendor') ?>/asscrollbar/jquery-asScrollbar.js"></script>
+    <script src="<?= $this->basePath('ad-st/vendor') ?>/asscrollable/jquery-asScrollable.js"></script>
+    <script src="<?= $this->basePath('ad-st/vendor') ?>/waves/waves.js"></script>
+    
+    <!-- Plugins -->
+    <script src="<?= $this->basePath('ad-st/vendor') ?>/jquery-mmenu/jquery.mmenu.min.all.js"></script>
+    <script src="<?= $this->basePath('ad-st/vendor') ?>/switchery/switchery.js"></script>
+    <script src="<?= $this->basePath('ad-st/vendor') ?>/intro-js/intro.js"></script>
+    <script src="<?= $this->basePath('ad-st/vendor') ?>/screenfull/screenfull.js"></script>
+    <script src="<?= $this->basePath('ad-st/vendor') ?>/slidepanel/jquery-slidePanel.js"></script>
+    <script src="<?= $this->basePath('ad-st/vendor') ?>/chartist/chartist.min.js"></script>
+    <script src="<?= $this->basePath('ad-st/vendor') ?>/chartist-plugin-tooltip/chartist-plugin-tooltip.js"></script>
+    <script src="<?= $this->basePath('ad-st/vendor') ?>/jvectormap/jquery-jvectormap.min.js"></script>
+    <script src="<?= $this->basePath('ad-st/vendor') ?>/jvectormap/maps/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="<?= $this->basePath('ad-st/vendor') ?>/matchheight/jquery.matchHeight-min.js"></script>
+    <script src="<?= $this->basePath('ad-st/vendor') ?>/peity/jquery.peity.min.js"></script>
+    
+    <!-- Scripts -->
+    <script src="<?= $this->basePath('ad-st/js') ?>/Component.js"></script>
+    <script src="<?= $this->basePath('ad-st/js') ?>/Plugin.js"></script>
+    <script src="<?= $this->basePath('ad-st/js') ?>/Base.js"></script>
+    <script src="<?= $this->basePath('ad-st/js') ?>/Config.js"></script>
+    
+    <script src="<?= $this->basePath('ad-st/js') ?>/Section/Menubar.js"></script>
+    <script src="<?= $this->basePath('ad-st/js') ?>/Section/Sidebar.js"></script>
+    <script src="<?= $this->basePath('ad-st/js') ?>/Section/PageAside.js"></script>
+    <script src="<?= $this->basePath('ad-st/js') ?>/Section/GridMenu.js"></script>
+    
+    <!-- Config -->
+    <script src="<?= $this->basePath('ad-st/js') ?>/config/colors.js"></script>
+    <script src="<?= $this->basePath('ad-st/js') ?>/config/tour.js"></script>
+    <script>Config.set('assets', '<?= $this->basePath('ad-st/js') ?>');</script>
+    
+    <!-- Page -->
+    <script src="<?= $this->basePath('ad-st/js') ?>/Site.js"></script>
+    <script src="<?= $this->basePath('ad-st/js') ?>/Plugin/asscrollable.js"></script>
+    <script src="<?= $this->basePath('ad-st/js') ?>/Plugin/slidepanel.js"></script>
+    <script src="<?= $this->basePath('ad-st/js') ?>/Plugin/switchery.js"></script>
+    <script src="<?= $this->basePath('ad-st/js') ?>/Plugin/matchheight.js"></script>
+    <script src="<?= $this->basePath('ad-st/js') ?>/Plugin/jvectormap.js"></script>
+    <script src="<?= $this->basePath('ad-st/js') ?>/Plugin/peity.js"></script>
+    
+    <script src="<?= $this->basePath('ad-st/js') ?>/dashboard/v1.js"></script>
+
+    <?= $this->inlineScript() ?>
+    
+  </body>
+</html>

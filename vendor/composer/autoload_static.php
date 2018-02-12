@@ -7,6 +7,7 @@ namespace Composer\Autoload;
 class ComposerStaticInitfb2727e3f6266407c1688f68012a0192
 {
     public static $files = array (
+        '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
         '34901568a1e26d13dd475cb2c85e0284' => __DIR__ . '/..' . '/zendframework/zend-form/autoload/formElementManagerPolyfill.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         'dc55c110342095dce21b6357af7bc409' => __DIR__ . '/..' . '/zendframework/zend-test/autoload/phpunit-class-aliases.php',
@@ -19,18 +20,29 @@ class ComposerStaticInitfb2727e3f6266407c1688f68012a0192
         ),
         'Z' => 
         array (
+            'Zend\\XmlRpc\\' => 12,
+            'Zend\\Xml2Json\\' => 14,
             'Zend\\View\\' => 10,
             'Zend\\Validator\\' => 15,
             'Zend\\Uri\\' => 9,
             'Zend\\Text\\' => 10,
             'Zend\\Test\\' => 10,
+            'Zend\\Tag\\' => 9,
+            'Zend\\Stratigility\\' => 18,
             'Zend\\Stdlib\\' => 12,
-            'Zend\\SkeletonInstaller\\' => 23,
+            'Zend\\Soap\\' => 10,
             'Zend\\Session\\' => 13,
             'Zend\\ServiceManager\\Di\\' => 23,
             'Zend\\ServiceManager\\' => 20,
+            'Zend\\Server\\' => 12,
+            'Zend\\Serializer\\' => 16,
             'Zend\\Router\\' => 12,
             'Zend\\Psr7Bridge\\' => 16,
+            'Zend\\ProgressBar\\' => 17,
+            'Zend\\Permissions\\Rbac\\' => 22,
+            'Zend\\Permissions\\Acl\\' => 21,
+            'Zend\\Paginator\\' => 15,
+            'Zend\\Navigation\\' => 16,
             'Zend\\Mvc\\Plugin\\Prg\\' => 20,
             'Zend\\Mvc\\Plugin\\Identity\\' => 25,
             'Zend\\Mvc\\Plugin\\FlashMessenger\\' => 31,
@@ -39,8 +51,13 @@ class ComposerStaticInitfb2727e3f6266407c1688f68012a0192
             'Zend\\Mvc\\Console\\' => 17,
             'Zend\\Mvc\\' => 9,
             'Zend\\ModuleManager\\' => 19,
+            'Zend\\Mime\\' => 10,
+            'Zend\\Memory\\' => 12,
+            'Zend\\Math\\' => 10,
+            'Zend\\Mail\\' => 10,
             'Zend\\Log\\' => 9,
             'Zend\\Loader\\' => 12,
+            'Zend\\Json\\Server\\' => 17,
             'Zend\\Json\\' => 10,
             'Zend\\InputFilter\\' => 17,
             'Zend\\I18n\\' => 10,
@@ -48,19 +65,23 @@ class ComposerStaticInitfb2727e3f6266407c1688f68012a0192
             'Zend\\Http\\' => 10,
             'Zend\\Form\\' => 10,
             'Zend\\Filter\\' => 12,
+            'Zend\\File\\' => 10,
+            'Zend\\Feed\\' => 10,
             'Zend\\EventManager\\' => 18,
             'Zend\\Escaper\\' => 13,
             'Zend\\Dom\\' => 9,
             'Zend\\Diactoros\\' => 15,
             'Zend\\Di\\' => 8,
+            'Zend\\Debug\\' => 11,
             'Zend\\Db\\' => 8,
+            'Zend\\Crypt\\' => 11,
             'Zend\\Console\\' => 13,
             'Zend\\Config\\' => 12,
-            'Zend\\ComponentInstaller\\' => 24,
             'Zend\\Code\\' => 10,
+            'Zend\\Captcha\\' => 13,
             'Zend\\Cache\\' => 11,
+            'Zend\\Barcode\\' => 13,
             'Zend\\Authentication\\' => 20,
-            'ZF\\DevelopmentMode\\' => 19,
         ),
         'W' => 
         array (
@@ -74,6 +95,7 @@ class ComposerStaticInitfb2727e3f6266407c1688f68012a0192
         ),
         'I' => 
         array (
+            'Interop\\Http\\Middleware\\' => 24,
             'Interop\\Container\\' => 18,
         ),
         'D' => 
@@ -84,6 +106,7 @@ class ComposerStaticInitfb2727e3f6266407c1688f68012a0192
         'A' => 
         array (
             'Application\\' => 12,
+            'Admin\\' => 6,
         ),
     );
 
@@ -93,6 +116,14 @@ class ComposerStaticInitfb2727e3f6266407c1688f68012a0192
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
             1 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
             2 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
+        ),
+        'Zend\\XmlRpc\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/zendframework/zend-xmlrpc/src',
+        ),
+        'Zend\\Xml2Json\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/zendframework/zend-xml2json/src',
         ),
         'Zend\\View\\' => 
         array (
@@ -114,13 +145,21 @@ class ComposerStaticInitfb2727e3f6266407c1688f68012a0192
         array (
             0 => __DIR__ . '/..' . '/zendframework/zend-test/src',
         ),
+        'Zend\\Tag\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/zendframework/zend-tag/src',
+        ),
+        'Zend\\Stratigility\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/zendframework/zend-stratigility/src',
+        ),
         'Zend\\Stdlib\\' => 
         array (
             0 => __DIR__ . '/..' . '/zendframework/zend-stdlib/src',
         ),
-        'Zend\\SkeletonInstaller\\' => 
+        'Zend\\Soap\\' => 
         array (
-            0 => __DIR__ . '/..' . '/zendframework/zend-skeleton-installer/src',
+            0 => __DIR__ . '/..' . '/zendframework/zend-soap/src',
         ),
         'Zend\\Session\\' => 
         array (
@@ -134,6 +173,14 @@ class ComposerStaticInitfb2727e3f6266407c1688f68012a0192
         array (
             0 => __DIR__ . '/..' . '/zendframework/zend-servicemanager/src',
         ),
+        'Zend\\Server\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/zendframework/zend-server/src',
+        ),
+        'Zend\\Serializer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/zendframework/zend-serializer/src',
+        ),
         'Zend\\Router\\' => 
         array (
             0 => __DIR__ . '/..' . '/zendframework/zend-router/src',
@@ -141,6 +188,26 @@ class ComposerStaticInitfb2727e3f6266407c1688f68012a0192
         'Zend\\Psr7Bridge\\' => 
         array (
             0 => __DIR__ . '/..' . '/zendframework/zend-psr7bridge/src',
+        ),
+        'Zend\\ProgressBar\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/zendframework/zend-progressbar/src',
+        ),
+        'Zend\\Permissions\\Rbac\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/zendframework/zend-permissions-rbac/src',
+        ),
+        'Zend\\Permissions\\Acl\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/zendframework/zend-permissions-acl/src',
+        ),
+        'Zend\\Paginator\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/zendframework/zend-paginator/src',
+        ),
+        'Zend\\Navigation\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/zendframework/zend-navigation/src',
         ),
         'Zend\\Mvc\\Plugin\\Prg\\' => 
         array (
@@ -174,6 +241,22 @@ class ComposerStaticInitfb2727e3f6266407c1688f68012a0192
         array (
             0 => __DIR__ . '/..' . '/zendframework/zend-modulemanager/src',
         ),
+        'Zend\\Mime\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/zendframework/zend-mime/src',
+        ),
+        'Zend\\Memory\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/zendframework/zend-memory/src',
+        ),
+        'Zend\\Math\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/zendframework/zend-math/src',
+        ),
+        'Zend\\Mail\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/zendframework/zend-mail/src',
+        ),
         'Zend\\Log\\' => 
         array (
             0 => __DIR__ . '/..' . '/zendframework/zend-log/src',
@@ -181,6 +264,10 @@ class ComposerStaticInitfb2727e3f6266407c1688f68012a0192
         'Zend\\Loader\\' => 
         array (
             0 => __DIR__ . '/..' . '/zendframework/zend-loader/src',
+        ),
+        'Zend\\Json\\Server\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/zendframework/zend-json-server/src',
         ),
         'Zend\\Json\\' => 
         array (
@@ -210,6 +297,14 @@ class ComposerStaticInitfb2727e3f6266407c1688f68012a0192
         array (
             0 => __DIR__ . '/..' . '/zendframework/zend-filter/src',
         ),
+        'Zend\\File\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/zendframework/zend-file/src',
+        ),
+        'Zend\\Feed\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/zendframework/zend-feed/src',
+        ),
         'Zend\\EventManager\\' => 
         array (
             0 => __DIR__ . '/..' . '/zendframework/zend-eventmanager/src',
@@ -230,9 +325,17 @@ class ComposerStaticInitfb2727e3f6266407c1688f68012a0192
         array (
             0 => __DIR__ . '/..' . '/zendframework/zend-di/src',
         ),
+        'Zend\\Debug\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/zendframework/zend-debug/src',
+        ),
         'Zend\\Db\\' => 
         array (
             0 => __DIR__ . '/..' . '/zendframework/zend-db/src',
+        ),
+        'Zend\\Crypt\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/zendframework/zend-crypt/src',
         ),
         'Zend\\Console\\' => 
         array (
@@ -242,25 +345,25 @@ class ComposerStaticInitfb2727e3f6266407c1688f68012a0192
         array (
             0 => __DIR__ . '/..' . '/zendframework/zend-config/src',
         ),
-        'Zend\\ComponentInstaller\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/zendframework/zend-component-installer/src',
-        ),
         'Zend\\Code\\' => 
         array (
             0 => __DIR__ . '/..' . '/zendframework/zend-code/src',
+        ),
+        'Zend\\Captcha\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/zendframework/zend-captcha/src',
         ),
         'Zend\\Cache\\' => 
         array (
             0 => __DIR__ . '/..' . '/zendframework/zend-cache/src',
         ),
+        'Zend\\Barcode\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/zendframework/zend-barcode/src',
+        ),
         'Zend\\Authentication\\' => 
         array (
             0 => __DIR__ . '/..' . '/zendframework/zend-authentication/src',
-        ),
-        'ZF\\DevelopmentMode\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/zfcampus/zf-development-mode/src',
         ),
         'Webmozart\\Assert\\' => 
         array (
@@ -278,6 +381,10 @@ class ComposerStaticInitfb2727e3f6266407c1688f68012a0192
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
         ),
+        'Interop\\Http\\Middleware\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/http-interop/http-middleware/src',
+        ),
         'Interop\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/container-interop/container-interop/src/Interop/Container',
@@ -294,9 +401,20 @@ class ComposerStaticInitfb2727e3f6266407c1688f68012a0192
         array (
             0 => __DIR__ . '/../..' . '/module/Application/src',
         ),
+        'Admin\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/module/Admin/src',
+        ),
     );
 
     public static $prefixesPsr0 = array (
+        'Z' => 
+        array (
+            'ZendXml\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/zendframework/zendxml/library',
+            ),
+        ),
         'P' => 
         array (
             'Prophecy\\' => 
@@ -847,6 +965,7 @@ class ComposerStaticInitfb2727e3f6266407c1688f68012a0192
         'TheSeer\\Tokenizer\\TokenCollectionException' => __DIR__ . '/..' . '/theseer/tokenizer/src/TokenCollectionException.php',
         'TheSeer\\Tokenizer\\Tokenizer' => __DIR__ . '/..' . '/theseer/tokenizer/src/Tokenizer.php',
         'TheSeer\\Tokenizer\\XMLSerializer' => __DIR__ . '/..' . '/theseer/tokenizer/src/XMLSerializer.php',
+        'Zend\\I18n\\Translator\\Resources' => __DIR__ . '/..' . '/zendframework/zend-i18n-resources/src/Resources.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

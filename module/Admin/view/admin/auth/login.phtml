@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html class="no-js css-menubar" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta name="description" content="bootstrap material admin template">
+    <meta name="author" content="">
+    
+    <title>Login | QTHM Shop</title>
+    
+    <link rel="apple-touch-icon" href="<?= $this->basePath('ad-st/apple-touch-icon.png') ?>">
+    <link rel="shortcut icon" href="<?= $this->basePath('ad-st/favicon.ico') ?>">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="<?= $this->basePath('ad-st/css/bootstrap.min.css') ?>">
+    <link rel="stylesheet" href="<?= $this->basePath('ad-st/css/bootstrap-extend.min.css') ?>">
+    <link rel="stylesheet" href="<?= $this->basePath('ad-st/css/site.min.css') ?>">
+    
+    <!-- Plugins -->
+    <link rel="stylesheet" href="<?= $this->basePath('ad-st/css/login-v3.css') ?>">
+    
+    
+    <!-- Fonts -->
+    <link rel="stylesheet" href="<?= $this->basePath('ad-st/fonts') ?>/material-design/material-design.min.css">
+    <link rel="stylesheet" href="<?= $this->basePath('ad-st/fonts') ?>/brand-icons/brand-icons.min.css">
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic'>
+
+    <!-- Scripts -->
+    <script src="<?= $this->basePath('ad-st/vendor') ?>/breakpoints/breakpoints.js"></script>
+    <script>
+      Breakpoints();
+    </script>
+  </head>
+  <body class="animsition page-login-v3 layout-full">
+
+    <!-- Page -->
+    <div class="page vertical-align text-center" data-animsition-in="fade-in" data-animsition-out="fade-out">
+      <div class="page-content vertical-align-middle">
+        <div class="panel">
+          <div class="panel-body">
+            <div class="brand">
+              <img class="brand-img" src="<?= $this->basePath('ad-st/img') ?>/logo-colored.png" alt="...">
+              <h2 class="brand-text font-size-18">Remark</h2>
+            </div>
+            <form method="post" action="#" autocomplete="off">
+              <div class="form-group form-material floating" data-plugin="formMaterial">
+                <input type="email" class="form-control" name="email" />
+                <label class="floating-label">Email</label>
+              </div>
+              <div class="form-group form-material floating" data-plugin="formMaterial">
+                <input type="password" class="form-control" name="password" />
+                <label class="floating-label">Password</label>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block btn-lg mt-40">Sign in</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Page -->
+
+
+    <!-- Core  -->
+    <script src="<?= $this->basePath('ad-st/vendor') ?>/babel-external-helpers/babel-external-helpers.js"></script>
+    <script src="<?= $this->basePath('ad-st/vendor') ?>/jquery/jquery.js"></script>
+    <script src="<?= $this->basePath('ad-st/vendor') ?>/popper-js/umd/popper.min.js"></script>
+    <script src="<?= $this->basePath('ad-st/vendor') ?>/bootstrap/bootstrap.js"></script>
+    <script src="<?= $this->basePath('ad-st/vendor') ?>/animsition/animsition.js"></script>
+    <script src="<?= $this->basePath('ad-st/vendor') ?>/mousewheel/jquery.mousewheel.js"></script>
+    <script src="<?= $this->basePath('ad-st/vendor') ?>/asscrollbar/jquery-asScrollbar.js"></script>
+    <script src="<?= $this->basePath('ad-st/vendor') ?>/asscrollable/jquery-asScrollable.js"></script>
+    <script src="<?= $this->basePath('ad-st/vendor') ?>/waves/waves.js"></script>
+    
+    <!-- Plugins -->
+    <script src="<?= $this->basePath('ad-st/vendor') ?>/jquery-mmenu/jquery.mmenu.min.all.js"></script>
+    <script src="<?= $this->basePath('ad-st/vendor') ?>/switchery/switchery.js"></script>
+    <script src="<?= $this->basePath('ad-st/vendor') ?>/intro-js/intro.js"></script>
+    <script src="<?= $this->basePath('ad-st/vendor') ?>/screenfull/screenfull.js"></script>
+    <script src="<?= $this->basePath('ad-st/vendor') ?>/slidepanel/jquery-slidePanel.js"></script>
+    <script src="<?= $this->basePath('ad-st/vendor') ?>/jquery-placeholder/jquery.placeholder.js"></script>
+    
+    <!-- Scripts -->
+    <script src="<?= $this->basePath('ad-st/js') ?>/Component.js"></script>
+    <script src="<?= $this->basePath('ad-st/js') ?>/Plugin.js"></script>
+    <script src="<?= $this->basePath('ad-st/js') ?>/Base.js"></script>
+    <script src="<?= $this->basePath('ad-st/js') ?>/Config.js"></script>
+    
+    <script src="<?= $this->basePath('ad-st/js') ?>/Section/Menubar.js"></script>
+    <script src="<?= $this->basePath('ad-st/js') ?>/Section/Sidebar.js"></script>
+    <script src="<?= $this->basePath('ad-st/js') ?>/Section/PageAside.js"></script>
+    <script src="<?= $this->basePath('ad-st/js') ?>/Section/GridMenu.js"></script>
+    
+    <!-- Config -->
+    <script src="<?= $this->basePath('ad-st/js') ?>/config/colors.js"></script>
+    <script src="<?= $this->basePath('ad-st/js') ?>/config/tour.js"></script>
+    <script>Config.set('assets', '<?= $this->basePath('ad-st/js') ?>');</script>
+    
+    <!-- Page -->
+    <script src="<?= $this->basePath('ad-st/js') ?>/Site.js"></script>
+    <script src="<?= $this->basePath('ad-st/js') ?>/Plugin/asscrollable.js"></script>
+    <script src="<?= $this->basePath('ad-st/js') ?>/Plugin/slidepanel.js"></script>
+    <script src="<?= $this->basePath('ad-st/js') ?>/Plugin/switchery.js"></script>
+    <script src="<?= $this->basePath('ad-st/js') ?>/Plugin/jquery-placeholder.js"></script>
+    <script src="<?= $this->basePath('ad-st/js') ?>/Plugin/material.js"></script>
+    
+    <script>
+      (function(document, window, $){
+        'use strict';
+    
+        var Site = window.Site;
+        $(document).ready(function(){
+          Site.run();
+        });
+      })(document, window, jQuery);
+    </script>
+    
+  </body>
+</html>
