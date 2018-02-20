@@ -10,7 +10,7 @@ class IndexController extends AbstractActionController
     public function indexAction()
     {
     	$modelUser = User::getInstance();
-    	$detailUser = $modelUser->getDetailUserByEmail('nathkagnh@gmail.com');
+    	$detailUser = $modelUser->getDetailUserByEmail('admin');
     	var_dump('<pre style="background-color:#7fbfff;">', $detailUser); exit;
 
     	// $result = $modelUser->addUser([

@@ -1,1 +1,72 @@
-add product
+<div class="page-header">
+	<h1 class="page-title">Add product</h1>
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item"><a href="<?= $this->url('admin-product', ['action' => 'index']); ?>">Manage</a></li>
+		<li class="breadcrumb-item active">Add product</li>
+	</ol>
+	<div class="page-header-actions">
+		<button type="button" class="btn btn-sm btn-icon btn-primary btn-round" data-toggle="tooltip" data-original-title="Save">
+			<i class="icon md-edit" aria-hidden="true"></i>
+		</button>
+		<button type="button" class="btn btn-sm btn-icon btn-primary btn-round" data-toggle="tooltip" data-original-title="Refresh" onclick="window.location.reload();">
+			<i class="icon md-refresh-alt" aria-hidden="true"></i>
+		</button>
+	</div>
+</div>
+
+<div class="page-content">
+	<div class="panel">
+		<div class="panel-heading">
+			<h3 class="panel-title">Thông tin cơ bản</h3>
+		</div>
+		<div class="panel-body container-fluid">
+			<div class="row row-lg">
+				<div class="col-md-6 col-lg-4">
+					<div class="example-wrap">
+						<input type="text" class="form-control" name="product_name" id="product_name" placeholder="Tên sản phẩm">
+					</div>
+				</div>
+				<div class="col-md-6 col-lg-4">
+					<div class="example-wrap">
+						<input type="text" class="form-control" name="category" id="category" placeholder="Thể loại">
+					</div>
+				</div>
+				<div class="col-md-6 col-lg-4">
+					<div class="example-wrap">
+						<input type="text" class="form-control" name="original_price" id="original_price" placeholder="Giá gốc">
+					</div>
+				</div>
+				<div class="col-md-6 col-lg-4">
+					<div class="example-wrap">
+						<input type="text" class="form-control" name="sale_price" id="sale_price" placeholder="Giá bán">
+					</div>
+				</div>
+				<div class="col-md-6 col-lg-4">
+					<div class="example-wrap">
+						<input type="text" class="form-control" name="discount" id="discount" placeholder="% giảm giá">
+					</div>
+				</div>
+				<div class="col-md-6 col-lg-4">
+					<div class="example-wrap">
+						<input type="text" class="form-control" name="quantity" id="quantity" placeholder="Số lượng">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="example-wrap">
+						<textarea class="form-control" name="description" id="description" rows="3" placeholder="Mô tả ngắn (không quá 200 từ)"></textarea>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<div class="panel">
+		<div class="panel-heading">
+			<h3 class="panel-title">Upload hình ảnh</h3>
+		</div>
+		<div class="panel-body container-fluid">
+			<div class="row row-lg">
+			</div>
+		</div>
+	</div>
+</div>

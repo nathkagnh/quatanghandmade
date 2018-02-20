@@ -1,3 +1,6 @@
+<?php
+  $arrNav = explode('/', $this->layout()->nav);
+?>
 <!DOCTYPE html>
 <html class="no-js css-menubar" lang="en">
   <head>
@@ -124,134 +127,32 @@
     </nav>
     <div class="site-menubar">
       <ul class="site-menu">
-        <li class="site-menu-item active">
+        <li class="site-menu-item <?php if(isset($arrNav[0]) && $arrNav[0] == 'home') echo 'active open'; ?>">
           <a class="animsition-link" href="<?= $this->url('admin-home'); ?>">
             <i class="site-menu-icon md-view-dashboard" aria-hidden="true"></i>
-            <span class="site-menu-title">Dashboard</span>
+            <span class="site-menu-title">Trang chính</span>
           </a>
         </li>
-        <li class="site-menu-item has-sub">
+        <li class="site-menu-item has-sub <?php if(isset($arrNav[0]) && $arrNav[0] == 'product') echo 'active open'; ?>">
           <a href="<?= $this->url('admin-product'); ?>">
             <i class="site-menu-icon md-view-compact" aria-hidden="true"></i>
             <span class="site-menu-title">Products</span>
             <span class="site-menu-arrow"></span>
           </a>
           <ul class="site-menu-sub">
-            <li class="site-menu-item">
+            <li class="site-menu-item <?php if(isset($arrNav[1]) && $arrNav[1] == 'home') echo 'active'; ?>">
+              <a class="animsition-link" href="<?= $this->url('admin-product', ['action' => 'index']); ?>">
+                <span class="site-menu-title">Manage</span>
+              </a>
+            </li>
+            <li class="site-menu-item <?php if(isset($arrNav[1]) && $arrNav[1] == 'add') echo 'active'; ?>">
               <a class="animsition-link" href="<?= $this->url('admin-product', ['action' => 'add']); ?>">
                 <span class="site-menu-title">Add</span>
               </a>
             </li>
-            <li class="site-menu-item">
+            <li class="site-menu-item <?php if(isset($arrNav[1]) && $arrNav[1] == 'edit') echo 'active'; ?>">
               <a class="animsition-link" href="<?= $this->url('admin-product', ['action' => 'edit']); ?>">
                 <span class="site-menu-title">Edit</span>
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li class="site-menu-item has-sub">
-          <a href="javascript:void(0)">
-                  <i class="site-menu-icon md-palette" aria-hidden="true"></i>
-                  <span class="site-menu-title">Basic UI</span>
-                          <span class="site-menu-arrow"></span>
-              </a>
-          <ul class="site-menu-sub">
-            <li class="site-menu-item has-sub">
-              <a href="javascript:void(0)">
-                <span class="site-menu-title">Panel</span>
-                <span class="site-menu-arrow"></span>
-              </a>
-              <ul class="site-menu-sub">
-                <li class="site-menu-item">
-                  <a class="animsition-link" href="uikit/panel-structure.html">
-                    <span class="site-menu-title">Panel Structure</span>
-                  </a>
-                </li>
-                <li class="site-menu-item">
-                  <a class="animsition-link" href="uikit/panel-actions.html">
-                    <span class="site-menu-title">Panel Actions</span>
-                  </a>
-                </li>
-                <li class="site-menu-item">
-                  <a class="animsition-link" href="uikit/panel-portlets.html">
-                    <span class="site-menu-title">Panel Portlets</span>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="uikit/buttons.html">
-                <span class="site-menu-title">Buttons</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="uikit/cards.html">
-                <span class="site-menu-title">Cards</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="uikit/dropdowns.html">
-                <span class="site-menu-title">Dropdowns</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="uikit/icons.html">
-                <span class="site-menu-title">Icons</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="uikit/list.html">
-                <span class="site-menu-title">List</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="uikit/tooltip-popover.html">
-                <span class="site-menu-title">Tooltip &amp; Popover</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="uikit/modals.html">
-                <span class="site-menu-title">Modals</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="uikit/tabs-accordions.html">
-                <span class="site-menu-title">Tabs &amp; Accordions</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="uikit/images.html">
-                <span class="site-menu-title">Images</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="uikit/badges.html">
-                <span class="site-menu-title">Badges</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="uikit/progress-bars.html">
-                <span class="site-menu-title">Progress Bars</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="uikit/carousel.html">
-                <span class="site-menu-title">Carousel</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="uikit/typography.html">
-                <span class="site-menu-title">Typography</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="uikit/colors.html">
-                <span class="site-menu-title">Colors</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="uikit/utilities.html">
-                <span class="site-menu-title">Utilties</span>
               </a>
             </li>
           </ul>
