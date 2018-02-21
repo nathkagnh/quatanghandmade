@@ -63,9 +63,6 @@ class AuthController extends AbstractActionController
                 // Check result.
                 if($result->getCode() == Result::SUCCESS)
                 {
-                    // Get redirect URL.
-                    $redirectUrl = $this->params()->fromPost('redirect_url', '');
-
                     if (!empty($redirectUrl))
                     {
                         // The below check is to prevent possible redirect attack

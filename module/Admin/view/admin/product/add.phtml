@@ -1,3 +1,11 @@
+<?php
+//head link
+$this->headLink()->appendStylesheet('/ad-st/vendor/dropify/dropify.min.css');
+
+//inline script
+$this->inlineScript()->appendFile('/ad-st/vendor/dropify/dropify.min.js');
+$this->inlineScript()->appendFile('/ad-st/js/scripts/product.js');
+?>
 <div class="page-header">
 	<h1 class="page-title">Add product</h1>
 	<ol class="breadcrumb">
@@ -6,66 +14,114 @@
 	</ol>
 	<div class="page-header-actions">
 		<button type="button" class="btn btn-sm btn-icon btn-primary btn-round" data-toggle="tooltip" data-original-title="Save">
-			<i class="icon md-edit" aria-hidden="true"></i>
+			<i class="icon md-check" aria-hidden="true"></i>
 		</button>
 		<button type="button" class="btn btn-sm btn-icon btn-primary btn-round" data-toggle="tooltip" data-original-title="Refresh" onclick="window.location.reload();">
 			<i class="icon md-refresh-alt" aria-hidden="true"></i>
 		</button>
 	</div>
 </div>
-
 <div class="page-content">
 	<div class="panel">
-		<div class="panel-heading">
-			<h3 class="panel-title">Thông tin cơ bản</h3>
-		</div>
 		<div class="panel-body container-fluid">
 			<div class="row row-lg">
 				<div class="col-md-6 col-lg-4">
 					<div class="example-wrap">
-						<input type="text" class="form-control" name="product_name" id="product_name" placeholder="Tên sản phẩm">
+						<h4 class="example-title">Tên sản phẩm</h4>
+						<input type="text" class="form-control" name="product_name" id="product_name">
 					</div>
 				</div>
 				<div class="col-md-6 col-lg-4">
 					<div class="example-wrap">
-						<input type="text" class="form-control" name="category" id="category" placeholder="Thể loại">
+						<h4 class="example-title">Thể loại</h4>
+						<div class="form-group">
+							<select class="form-control" name="category" id="category">
+								<option>Chọn</option>
+								<option>Đồ len</option>
+								<option>Chậu cảnh</option>
+							</select>
+						</div>
 					</div>
 				</div>
 				<div class="col-md-6 col-lg-4">
 					<div class="example-wrap">
-						<input type="text" class="form-control" name="original_price" id="original_price" placeholder="Giá gốc">
+						<h4 class="example-title">Giá gốc</h4>
+						<input type="text" class="form-control" name="original_price" id="original_price">
 					</div>
 				</div>
 				<div class="col-md-6 col-lg-4">
 					<div class="example-wrap">
-						<input type="text" class="form-control" name="sale_price" id="sale_price" placeholder="Giá bán">
+						<h4 class="example-title">Giá bán</h4>
+						<input type="text" class="form-control" name="sale_price" id="sale_price">
 					</div>
 				</div>
 				<div class="col-md-6 col-lg-4">
 					<div class="example-wrap">
-						<input type="text" class="form-control" name="discount" id="discount" placeholder="% giảm giá">
+						<h4 class="example-title">% giảm giá</h4>
+						<input type="text" class="form-control" name="discount" id="discount">
 					</div>
 				</div>
 				<div class="col-md-6 col-lg-4">
 					<div class="example-wrap">
-						<input type="text" class="form-control" name="quantity" id="quantity" placeholder="Số lượng">
+						<h4 class="example-title">Số lượng</h4>
+						<input type="text" class="form-control" name="quantity" id="quantity">
 					</div>
 				</div>
-				<div class="col-md-6">
+				<div class="col-md-6 col-lg-4">
 					<div class="example-wrap">
-						<textarea class="form-control" name="description" id="description" rows="3" placeholder="Mô tả ngắn (không quá 200 từ)"></textarea>
+						<h4 class="example-title">Mô tả ngắn</h4>
+						<textarea class="form-control" name="description" id="description" rows="5" placeholder="không quá 200 từ"></textarea>
+					</div>
+				</div>
+				<div class="col-md-6 col-lg-8">
+					<div class="example-wrap">
+						<h4 class="example-title">Mô tả chi tiết</h4>
+						<textarea class="form-control" name="detail" id="detail" rows="5" placeholder="không quá 1000 từ"></textarea>
+					</div>
+				</div>
+				<div class="col-xl-4 col-md-6">
+					<div class="example-wrap">
+						<h4 class="example-title">Ảnh đại diện</h4>
+						<div class="example">
+							<input type="file" id="image" name="image"/>
+						</div>
 					</div>
 				</div>
 
-			</div>
-		</div>
-	</div>
-	<div class="panel">
-		<div class="panel-heading">
-			<h3 class="panel-title">Upload hình ảnh</h3>
-		</div>
-		<div class="panel-body container-fluid">
-			<div class="row row-lg">
+				<div class="col-xl-4 col-md-6">
+					<div class="example-wrap">
+						<h4 class="example-title">Ảnh chi tiết 1</h4>
+						<div class="example">
+							<input type="file" id="other_images1" name="other_images[]"/>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-xl-4 col-md-6">
+					<div class="example-wrap">
+						<h4 class="example-title">Ảnh chi tiết 2</h4>
+						<div class="example">
+							<input type="file" id="other_images2" name="other_images[]"/>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-xl-4 col-md-6">
+					<div class="example-wrap">
+						<h4 class="example-title">Ảnh chi tiết 3</h4>
+						<div class="example">
+							<input type="file" id="other_images3" name="other_images[]"/>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-xl-4 col-md-6 col_btn_more_image">
+					<div class="example-wrap">
+						<div class="example example-buttons text-center">
+							<button type="button" class="btn btn-floating btn-info waves-effect waves-classic" id="btn_more_image"><i class="icon md-plus" aria-hidden="true"></i></button>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

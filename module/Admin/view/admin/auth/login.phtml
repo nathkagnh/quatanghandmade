@@ -41,16 +41,17 @@
           <div class="panel-body">
             <div class="brand">
               <img class="brand-img" src="<?= $this->basePath('ad-st/img') ?>/logo-colored.png" alt="...">
-              <h2 class="brand-text font-size-18">Remark</h2>
+              <h2 class="brand-text font-size-18">QTHM</h2>
             </div>
             <form method="post" action="#" autocomplete="off">
               <div class="form-group form-material floating" data-plugin="formMaterial">
-                <input type="email" class="form-control" name="email" />
+                <input type="email" class="form-control" name="email" value="<?php if($this->form['email']) echo $this->form['email']; ?>"/>
                 <label class="floating-label">Email</label>
               </div>
               <div class="form-group form-material floating" data-plugin="formMaterial">
-                <input type="password" class="form-control" name="password" />
+                <input type="password" class="form-control <?php if($this->isLoginError) echo 'is-invalid'; ?>" name="password" value="<?php if($this->form['password']) echo $this->form['password']; ?>"/>
                 <label class="floating-label">Password</label>
+                <div class="invalid-feedback">Email or password is wrong.</div>
               </div>
               <button type="submit" class="btn btn-primary btn-block btn-lg mt-40">Sign in</button>
             </form>

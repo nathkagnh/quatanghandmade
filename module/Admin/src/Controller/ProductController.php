@@ -15,6 +15,9 @@ class ProductController extends AbstractActionController
     public function addAction()
     {
         $this->layout()->setVariable('nav', 'product/add');
+        // $headScript = $this->getServiceLocator()->get('viewhelpermanager')->get('headScript');
+        // $headScript->appendFile('/ad-st/js/scripts/product.js');
+        
         return new ViewModel();
     }
 
